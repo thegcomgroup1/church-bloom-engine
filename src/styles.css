@@ -126,3 +126,7 @@
     color: var(--color-secondary);
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-video { display: none !important; }
+}

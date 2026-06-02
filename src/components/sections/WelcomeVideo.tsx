@@ -18,8 +18,9 @@ export function WelcomeVideo() {
 
   if (!v.enabled || !v.embedUrl) return null;
 
+  const embedUrl: string = v.embedUrl;
   const src = playing
-    ? `${v.embedUrl}${v.embedUrl.includes("?") ? "&" : "?"}autoplay=1`
+    ? `${embedUrl}${embedUrl.includes("?") ? "&" : "?"}autoplay=1`
     : "";
 
   return (
