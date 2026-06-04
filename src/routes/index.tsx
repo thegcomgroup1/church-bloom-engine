@@ -16,17 +16,17 @@ import { Footer } from "@/components/sections/Footer";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "[Church Name] — A welcoming home in [City]" },
+      { title: "One Hope Church — A Bible-centered family in Tucson, AZ" },
       {
         name: "description",
         content:
-          "Visiting for the first time? Here's everything you need — service times, what to expect, and how to plan your visit.",
+          "Visiting for the first time? Sundays at 10:30 AM at Miller Elementary in Tucson. You'll be greeted, brought in, and loved.",
       },
-      { property: "og:title", content: "[Church Name] — A welcoming home in [City]" },
+      { property: "og:title", content: "One Hope Church — A Bible-centered family in Tucson, AZ" },
       {
         property: "og:description",
         content:
-          "Visiting for the first time? Here's everything you need — service times, what to expect, and how to plan your visit.",
+          "Sundays at 10:30 AM at Miller Elementary in Tucson. Come as you are. Be known. Be loved.",
       },
       { property: "og:type", content: "website" },
     ],

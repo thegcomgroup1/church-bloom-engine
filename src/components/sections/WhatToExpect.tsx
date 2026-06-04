@@ -1,4 +1,4 @@
-import { Heart, Clock, Shirt, Baby, type LucideIcon } from "lucide-react";
+import { Heart, Clock, Shirt, Baby, BookOpen, Users, type LucideIcon } from "lucide-react";
 import { PlanYourVisitButton } from "@/components/PlanYourVisitButton";
 import { siteConfig } from "@/config/site";
 

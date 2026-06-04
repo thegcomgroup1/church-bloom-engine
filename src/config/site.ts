@@ -1,11 +1,27 @@
 /**
  * HLPR Master Ministry Base — site configuration (the swap layer).
+ * ─────────────────────────────────────────────────────────────────
+ * REMIX: One Hope Church, Tucson AZ (onehopeaz.com)
+ * Free homepage mockup — image-only (no hero video, no welcome video).
  *
- * To re-skin for a new church, change values in this file plus the brand
- * tokens in src/styles.css. The structure of the page never changes.
+ * DESIGN BRIEF (from Timbo's call, in his words):
+ *   - His current site is "all things for all people, therefore nothing
+ *     for anybody." The #1 job of this mockup is to prove the OPPOSITE:
+ *     ONE clear identity, ONE clear next step. RESTRAINT is the feature.
+ *   - He needs "an entry point, a ramp" for a first-time visitor:
+ *     "Who are you? Will I go to church there?" → Plan a Visit.
+ *   - Make the website the hub: connect card, sermons link out to YouTube,
+ *     sign-ups all point back to the site.
+ *   - Identity is Word-centered + family + belonging. NOT attractional/flashy.
+ *     His line: "We don't change the Bible, we let it change us."
+ *     His promise: "You're not going to be impressed. You're going to be
+ *     loved. You're going to be brought in. You're going to be greeted."
+ *   - Multicultural & real: ~25 Ukrainian refugees, third-gen Hispanic,
+ *     white — a genuine family across cultures. (Signature touch.)
+ *   - Giving: Tithely. Sermons: YouTube (channel "One Hope").
  *
- * All copy below is written warm/plain/human, addressed to a nervous
- * first-time visitor. Square-bracket tokens are obvious swap targets.
+ * The fixed "gap" vs. their current site: cut the clutter, lead with one
+ * identity and one prominent, repeated Plan-a-Visit ramp.
  */
 
 import heroImage from "@/assets/placeholders/hero.jpg";
@@ -19,143 +35,133 @@ import life6 from "@/assets/placeholders/life-6.jpg";
 
 export const siteConfig = {
   church: {
-    name: "[CHURCH NAME]",
-    shortName: "[CHURCH]",
-    city: "[CITY, ST]",
-    tagline: "A welcoming home for people just like you.",
+    name: "One Hope Church",
+    shortName: "One Hope",
+    city: "Tucson, AZ",
+    tagline: "Come as you are. Be known. Be loved.",
     mission:
-      "We're a church for anyone who's ever wondered if there's a place for them. There is — and it's right here.",
+      "A Bible-centered family in Tucson where you'll be greeted, brought in, and loved — and where you'll learn to follow Jesus one step at a time.",
     story: [
-      "[CHURCH NAME] started in [YEAR] with a handful of families and one quiet conviction: that anyone who walked through the doors should feel like they already belonged.",
-      "All these years later, that's still the heart of who we are. We're ordinary people — parents, grandparents, kids, college students, retirees — learning what it looks like to follow Jesus together in [CITY].",
+      "We're not a flashy church, and we're okay with that. When you walk in, you won't be wowed by lights and a show — you'll be greeted, brought in, and known. That's the point.",
+      "We're a real family across cultures — folks born in Tucson, third-generation Hispanic neighbors, and around twenty-five Ukrainian friends who've become part of us. Whoever you are, there's a place for you at this table.",
     ],
-    foundedLine: "Serving [CITY] since [YEAR]",
+    foundedLine: "A church for Tucson",
   },
 
   brand: {
-    logoText: "[CHURCH]",
-    /**
-     * Hero media. Free mockups: leave type as "image" (videoSrc ignored).
-     * Live sites / paid builds: set type to "video" and point videoSrc at a
-     * compressed, muted, loopable .mp4/.webm. imageSrc is ALWAYS used as the
-     * poster, the mobile fallback, and the reduced-motion fallback.
-     */
+    logoText: "One Hope",
+    storyImageSrc: storyImage,
+
     heroMedia: {
       type: "image" as "image" | "video",
       imageSrc: heroImage,
       videoSrc: "",
     },
-    storyImageSrc: storyImage,
   },
 
   service: {
-    timesShort: "Sundays · 9:00 & 10:45 AM",
+    timesShort: "Sundays · 10:30 AM",
     timesLong: [
-      { day: "Sunday", time: "9:00 AM" },
-      { day: "Sunday", time: "10:45 AM" },
+      { day: "Sunday", time: "10:30 AM" },
     ],
-    address: "[123 Street Name, City, ST 00000]",
+    address: "Miller Elementary School, 6951 S Camino De La Tierra, Tucson, AZ 85746",
     mapEmbedUrl:
-      "https://www.openstreetmap.org/export/embed.html?bbox=-97.7437%2C30.2660%2C-97.7372%2C30.2706&layer=mapnik",
-    mapLinkUrl: "https://www.google.com/maps",
+      "https://www.google.com/maps?q=6951+S+Camino+De+La+Tierra,+Tucson,+AZ+85746&output=embed",
+    mapLinkUrl: "https://www.google.com/maps?q=6951+S+Camino+De+La+Tierra,+Tucson,+AZ+85746",
     practical: [
-      { label: "Parking", value: "Free, right out front" },
-      { label: "Service length", value: "Around 70 minutes" },
-      { label: "What to wear", value: "Whatever you're comfortable in" },
+      { label: "Where", value: "We meet at Miller Elementary — easy to find, easy to park" },
+      { label: "Service length", value: "About one hour" },
+      { label: "What to wear", value: "Come exactly as you are" },
     ],
   },
 
+  // The "ramp" Timbo asked for — answers "Will I go to church there?"
   expect: [
     {
       icon: "Heart" as const,
-      title: "You'll be welcomed, not cornered",
-      body: "A friendly hello at the door — and that's it. Nobody will single you out, ask you to stand, or put you on the spot.",
+      title: "You'll be greeted and brought in",
+      body: "No spotlight, no pressure. You'll be welcomed by name and folded into a family that's genuinely glad you came.",
+    },
+    {
+      icon: "BookOpen" as const,
+      title: "You'll hear the Bible, plainly",
+      body: "We don't change the Bible — we let it change us. Expect a message rooted in Scripture that actually meets your week.",
+    },
+    {
+      icon: "Users" as const,
+      title: "A real family, across cultures",
+      body: "Tucson neighbors, Hispanic families, Ukrainian friends — different stories, one table. You'll fit here.",
     },
     {
       icon: "Clock" as const,
-      title: "About 70 minutes, start to finish",
-      body: "Music, a practical message from the Bible, and a few minutes to breathe. You'll know what's happening the whole time.",
-    },
-    {
-      icon: "Shirt" as const,
-      title: "Come as you are",
-      body: "Jeans, dress, t-shirt, suit — all of it shows up on Sunday. Wear what feels like you.",
-    },
-    {
-      icon: "Baby" as const,
-      title: "Your kids are in great hands",
-      body: "Safe, fun, age-appropriate spaces for newborns through 5th grade. Check-in is simple and we'll walk you through it.",
+      title: "About an hour, come as you are",
+      body: "Quality, not a production. Casual, warm, and over in about an hour. Wear whatever feels like you.",
     },
   ],
 
   life: [
-    { src: life1, alt: "Volunteers laughing while setting up the welcome table" },
-    { src: life2, alt: "Kids laughing during a craft in kids ministry" },
-    { src: life3, alt: "Worship inside the sanctuary" },
-    { src: life4, alt: "Two members hugging after service" },
-    { src: life5, alt: "A small group gathered in a living room" },
-    { src: life6, alt: "Volunteers serving meals in the community" },
+    { src: life1, alt: "The One Hope family gathered on a Sunday" },
+    { src: life2, alt: "Welcoming a first-time guest" },
+    { src: life3, alt: "Teaching from the Bible" },
+    { src: life4, alt: "Friends from many backgrounds together" },
+    { src: life5, alt: "Families connecting after service" },
+    { src: life6, alt: "Serving the Tucson community" },
   ],
 
+  // Kept deliberately short — Timbo wants LESS, not more. One identity.
   ministries: [
-    { name: "Kids", line: "Sundays designed around your kids, not in spite of them." },
-    { name: "Students", line: "A place for middle and high schoolers to be known." },
-    { name: "Young Adults", line: "Real friendships for the in-between years." },
-    { name: "Small Groups", line: "Life is better in a circle of eight than a row of two hundred." },
-    { name: "Care & Counseling", line: "When life gets hard, you don't walk through it alone." },
-    { name: "Serve", line: "Find a spot to give back — in the church and across the city." },
+    { name: "Plan Your First Visit", line: "New here? This is your ramp. We'll tell you exactly what to expect and make your first Sunday easy." },
+    { name: "Rooted in the Word", line: "Bible-centered teaching for believers and seekers alike. Discipleship is a journey, and it starts wherever you are." },
+    { name: "A Family for Everyone", line: "Across cultures and backgrounds, this is a place to belong, be known, and be loved." },
+    { name: "Following Together", line: "Whether you're exploring faith or growing in it, we'll help you take the next step — and we'll walk it with you." },
   ],
 
   events: [
     {
-      date: "This Sunday",
-      title: "Newcomer Welcome",
-      blurb: "First time here? Grab coffee with our team right after the service.",
+      date: "This Sunday · 10:30 AM",
+      title: "Join Us at Miller Elementary",
+      blurb: "Come a few minutes early — we'll be watching for you and help you get settled.",
     },
     {
-      date: "Sat, [Date]",
-      title: "Community Workday",
-      blurb: "We're partnering with a local school for a morning of cleanup and care.",
-    },
-    {
-      date: "[Date]",
-      title: "Family Night",
-      blurb: "Food trucks, games, and a short message for the whole family.",
+      date: "Every week",
+      title: "New Here? Plan a Visit",
+      blurb: "Let us know you're coming and we'll have someone ready to welcome you by name.",
     },
   ],
 
   sermon: {
-    title: "[Latest Message Title]",
-    speaker: "[Speaker Name]",
-    series: "[Series Name]",
+    title: "[Latest Message — link from the One Hope YouTube channel]",
+    speaker: "Dr. Timothy Fowler",
+    series: "[Current Series]",
     date: "[Recent Date]",
     summary:
-      "A short, practical look at what it means to follow Jesus in the middle of an ordinary week.",
-    embedUrl: "", // YouTube/FB/podcast embed
-    watchUrl: "#",
+      "Bible-centered, plainly taught. Catch the latest message on YouTube, or join us in person this Sunday.",
+    embedUrl: "", // link out to YouTube, do not self-host (keeps the site fast)
+    watchUrl: "#", // One Hope YouTube channel
   },
 
   give: {
-    line: "Every gift goes toward people — locally and around the world. Give online in about thirty seconds.",
-    onlineUrl: "#",
+    line: "Every gift helps One Hope love Tucson well and reach more families with the gospel. Simple, secure giving through Tithely.",
+    onlineUrl: "#", // existing Tithely link
   },
 
   welcomeVideo: {
     enabled: false,
     eyebrow: "Meet us first",
     heading: "A quick hello before you visit.",
-    body: "We know visiting a new church can feel like a big step. So before you ever walk through the doors, here's a short hello from our team — who we are, and what Sunday looks like.",
+    body:
+      "We know visiting a new church can feel like a big step. Here's a short hello so you know exactly who you'll be meeting on Sunday.",
     posterSrc: storyImage,
     embedUrl: "",
   },
 
   contact: {
-    phone: "[(000) 000-0000]",
-    email: "[hello@church.org]",
+    phone: "(520) 940-8464",
+    email: "church@onehopeaz.com",
     socials: [
+      { label: "YouTube", url: "#" },
       { label: "Facebook", url: "#" },
       { label: "Instagram", url: "#" },
-      { label: "YouTube", url: "#" },
     ],
   },
 } as const;
