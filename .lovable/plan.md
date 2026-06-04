@@ -1,30 +1,42 @@
 ## Goal
-Replace `src/config/site.ts` with the One Hope Church (Tucson, AZ) configuration from the uploaded `OneHope_site.ts`, preserving all field shapes consumed by existing components.
+Swap in the real One Hope logo, real congregation photos from onehopeaz.com, and shift the palette to their orange (#ff6d01).
 
-## Changes
+## 1. Logo
+Upload the attached One Hope logo as a Lovable Asset, then render it in the sticky header (replacing the `logoText` word-mark) and in the footer.
+- `lovable-assets create --file /mnt/user-uploads/image.png --filename one-hope-logo.png > src/assets/one-hope-logo.png.asset.json`
+- `src/components/sections/StickyHeader.tsx`: replace the `<span>{logoText}</span>` with an `<img>` using the asset URL (~h-10), keep alt = church name.
+- `src/components/sections/Footer.tsx`: add the logo above the church name line.
 
-**1. Overwrite `src/config/site.ts`** with uploaded content, with one addition:
-- Add `logoText: "One Hope"` to the `brand` block. The uploaded file omits it, but `StickyHeader.tsx` reads `siteConfig.brand.logoText`. Without it the header logo would be undefined.
+## 2. Real photos from onehopeaz.com
+Use the 8 photo URLs pulled from their live homepage slideshow + "Who we are" image. Pipe them through Lovable Assets so they're CDN-served from our project (avoids hot-linking + CORS).
 
-All other fields (church, service, expect, life, ministries, events, sermon, give, welcomeVideo, contact) drop in as-is — shape matches the current config exactly.
+Source URLs:
+- Hero/life pool: `IMG_4336-scaled.jpg`, `IMG_0278-scaled.jpg`, `15456.jpg`, `IMG_0076-scaled.jpg`, `IMG_0124-scaled.jpg`, `15612.jpeg`, `11213.jpg` (all under `https://onehopeaz.com/wp-content/uploads/2025/07/`)
+- Story image: `16366.jpg` (same path)
 
-**2. Update `src/routes/index.tsx`** `<title>` and meta description to reflect One Hope Church, Tucson AZ (currently set to the previous church). Keep route structure unchanged.
+For each: `curl -o /tmp/x.jpg <url>` → `lovable-assets create --file /tmp/x.jpg --filename <name>.jpg > src/assets/onehope/<name>.jpg.asset.json`.
 
-## Not in scope (deferred until user confirms / provides assets)
-- Replacing the 8 placeholder images in `src/assets/placeholders/` with real One Hope photos (especially the multicultural family shots — the signature visual)
-- Brand color tweaks in `src/styles.css` (current warm palette is acceptable; can iterate after preview)
-- Filling in the three real URLs Timbo still owes: YouTube channel link, Tithely giving link, social handles
-- Filling in latest sermon title/series/date
-- Confirming Miller Elementary is still the correct Sunday location post-move
+Then in `src/config/site.ts`:
+- `brand.heroMedia.imageSrc` → the strongest wide congregation shot (IMG_4336)
+- `brand.storyImageSrc` → 16366.jpg (the multicultural family shot featured on their "Who we are")
+- `life[]` (6 entries) → the remaining 6 photos with descriptive alt text
 
-## Verification
-After the edit, load `/` in preview and confirm:
-- Header logo reads "One Hope"
-- Hero shows One Hope tagline + "Plan a Visit" CTA
-- Service block shows 10:30 AM at Miller Elementary with the Google Maps embed of that address
-- "What to expect" shows the 4 ramp items with Heart/BookOpen/Users/Clock icons (verify `BookOpen` and `Users` are wired in the icon map; if not, add them)
-- Ministries section shows the 4 restraint-edition items
-- Welcome video section stays hidden (`enabled: false`)
+Update imports in `site.ts` from the asset JSON pointers; remove the placeholder imports.
 
-## Technical note
-Need to check the icon-name mapping in the Expect section. The base config used `Heart/Clock/Shirt/Baby`; the One Hope config introduces `BookOpen` and `Users`. If the Expect component has a hardcoded icon map, those two icons must be added there before the new config will render. Will verify and patch in the same edit batch.
+## 3. Orange palette (#ff6d01)
+In `src/styles.css`, replace the current blue `--primary` and `--ring` with the One Hope orange. Keep secondary (deep heading color) but warm it slightly so it harmonizes with orange.
+- `--primary: oklch(0.68 0.19 45)` (≈ #ff6d01)
+- `--primary-foreground: oklch(0.99 0 0)`
+- `--ring: oklch(0.68 0.19 45)`
+- `--secondary: oklch(0.28 0.04 50)` (warm near-black for headings)
+- Dark-mode `--primary` lightened equivalent.
+
+Background and surfaces stay on the existing warm cream — already on-brand with the logo's tan card.
+
+## 4. Verify
+Reload `/` and confirm: header shows logo image, hero shows real congregation photo with orange "Plan a Visit" button, Mission/Story section shows 16366 multicultural shot, Life grid shows the 6 remaining real photos, footer shows logo. Check the orange has enough contrast on the cream background.
+
+## Out of scope (ask separately)
+- Replacing copy (their site uses "Love God, Love People, Transform Tucson" / "Southwest Tucson" — I'll keep Timbo's restraint-edition copy unless you want me to pull theirs verbatim)
+- Real YouTube channel / Tithely / social URLs
+- Confirming Miller Elementary is still the Sunday spot post-move
