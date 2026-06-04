@@ -2,7 +2,7 @@ import { Heart, Clock, Shirt, Baby, BookOpen, Users, type LucideIcon } from "luc
 import { PlanYourVisitButton } from "@/components/PlanYourVisitButton";
 import { siteConfig } from "@/config/site";
 
-const icons: Record<string, LucideIcon> = { Heart, Clock, Shirt, Baby };
+const icons: Record<string, LucideIcon> = { Heart, Clock, Shirt, Baby, BookOpen, Users };
 
 export function WhatToExpect() {
   return (
