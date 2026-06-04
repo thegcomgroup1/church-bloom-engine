@@ -1,48 +1,30 @@
-## Add optional video capability to the Master Base
+## Goal
+Replace `src/config/site.ts` with the One Hope Church (Tucson, AZ) configuration from the uploaded `OneHope_site.ts`, preserving all field shapes consumed by existing components.
 
-Bake video support into the base so it's available per-church via config flags. Image-only mockups (including OFN) need zero changes — video is purely opt-in.
+## Changes
 
-### Files to change
+**1. Overwrite `src/config/site.ts`** with uploaded content, with one addition:
+- Add `logoText: "One Hope"` to the `brand` block. The uploaded file omits it, but `StickyHeader.tsx` reads `siteConfig.brand.logoText`. Without it the header logo would be undefined.
 
-**1. Replace `src/components/sections/Hero.tsx`** with the attached `Hero.tsx`. Image is always the base layer; a muted/looping `<video>` overlays on desktop only when `heroMedia.type === "video"` and a `videoSrc` is set. Image doubles as poster + mobile + reduced-motion fallback.
+All other fields (church, service, expect, life, ministries, events, sermon, give, welcomeVideo, contact) drop in as-is — shape matches the current config exactly.
 
-**2. Create `src/components/sections/WelcomeVideo.tsx`** from the attached file. Renders nothing unless `welcomeVideo.enabled === true` and `embedUrl` is set. Click-to-play poster → autoplay iframe (YouTube/Vimeo embed URL), so the heavy iframe never loads for visitors who scroll past.
+**2. Update `src/routes/index.tsx`** `<title>` and meta description to reflect One Hope Church, Tucson AZ (currently set to the previous church). Keep route structure unchanged.
 
-**3. Edit `src/config/site.ts`:**
-- Inside `brand`, replace `heroImageSrc: heroImage,` with a `heroMedia` block:
-  ```ts
-  heroMedia: {
-    type: "image" as "image" | "video",
-    imageSrc: heroImage,
-    videoSrc: "",
-  },
-  ```
-  Keep `storyImageSrc` as-is.
-- Add a new top-level `welcomeVideo` block (before `contact`):
-  ```ts
-  welcomeVideo: {
-    enabled: false,
-    eyebrow: "Meet us first",
-    heading: "A quick hello before you visit.",
-    body: "We know visiting a new church can feel like a big step. So before you ever walk through the doors, here's a short hello from our team — who we are, and what Sunday looks like.",
-    posterSrc: storyImage,
-    embedUrl: "",
-  },
-  ```
-- Note: the explicit `as "image" | "video"` annotation is required so `as const` doesn't lock `type` to the `"image"` literal.
+## Not in scope (deferred until user confirms / provides assets)
+- Replacing the 8 placeholder images in `src/assets/placeholders/` with real One Hope photos (especially the multicultural family shots — the signature visual)
+- Brand color tweaks in `src/styles.css` (current warm palette is acceptable; can iterate after preview)
+- Filling in the three real URLs Timbo still owes: YouTube channel link, Tithely giving link, social handles
+- Filling in latest sermon title/series/date
+- Confirming Miller Elementary is still the correct Sunday location post-move
 
-**4. Edit `src/routes/index.tsx`:** import `WelcomeVideo` and render `<WelcomeVideo />` directly after `<MissionStory />`.
+## Verification
+After the edit, load `/` in preview and confirm:
+- Header logo reads "One Hope"
+- Hero shows One Hope tagline + "Plan a Visit" CTA
+- Service block shows 10:30 AM at Miller Elementary with the Google Maps embed of that address
+- "What to expect" shows the 4 ramp items with Heart/BookOpen/Users/Clock icons (verify `BookOpen` and `Users` are wired in the icon map; if not, add them)
+- Ministries section shows the 4 restraint-edition items
+- Welcome video section stays hidden (`enabled: false`)
 
-**5. Edit `src/styles.css`:** append a reduced-motion rule so the video hides for users who prefer reduced motion (image fallback shows through):
-```css
-@media (prefers-reduced-motion: reduce) {
-  .hero-video { display: none !important; }
-}
-```
-
-### Verification
-- Confirm no remaining references to `siteConfig.brand.heroImageSrc` anywhere in the codebase (Hero is the only consumer; the new field is `heroMedia.imageSrc`).
-- Confirm build passes with both flags off (default state — matches OFN's needs).
-
-### Out of scope
-- No OFN content swap. No actual video assets. No structural changes elsewhere.
+## Technical note
+Need to check the icon-name mapping in the Expect section. The base config used `Heart/Clock/Shirt/Baby`; the One Hope config introduces `BookOpen` and `Users`. If the Expect component has a hardcoded icon map, those two icons must be added there before the new config will render. Will verify and patch in the same edit batch.
