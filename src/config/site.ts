@@ -1,37 +1,17 @@
 /**
- * HLPR Master Ministry Base — site configuration (the swap layer).
- * ─────────────────────────────────────────────────────────────────
- * REMIX: One Hope Church, Tucson AZ (onehopeaz.com)
- * Free homepage mockup — image-only (no hero video, no welcome video).
- *
- * DESIGN BRIEF (from Timbo's call, in his words):
- *   - His current site is "all things for all people, therefore nothing
- *     for anybody." The #1 job of this mockup is to prove the OPPOSITE:
- *     ONE clear identity, ONE clear next step. RESTRAINT is the feature.
- *   - He needs "an entry point, a ramp" for a first-time visitor:
- *     "Who are you? Will I go to church there?" → Plan a Visit.
- *   - Make the website the hub: connect card, sermons link out to YouTube,
- *     sign-ups all point back to the site.
- *   - Identity is Word-centered + family + belonging. NOT attractional/flashy.
- *     His line: "We don't change the Bible, we let it change us."
- *     His promise: "You're not going to be impressed. You're going to be
- *     loved. You're going to be brought in. You're going to be greeted."
- *   - Multicultural & real: ~25 Ukrainian refugees, third-gen Hispanic,
- *     white — a genuine family across cultures. (Signature touch.)
- *   - Giving: Tithely. Sermons: YouTube (channel "One Hope").
- *
- * The fixed "gap" vs. their current site: cut the clutter, lead with one
- * identity and one prominent, repeated Plan-a-Visit ramp.
+ * One Hope Church — site configuration (the swap layer).
+ * Real photos sourced from onehopeaz.com (served via Lovable CDN assets).
  */
 
-import heroImage from "@/assets/placeholders/hero.jpg";
-import storyImage from "@/assets/placeholders/story.jpg";
-import life1 from "@/assets/placeholders/life-1.jpg";
-import life2 from "@/assets/placeholders/life-2.jpg";
-import life3 from "@/assets/placeholders/life-3.jpg";
-import life4 from "@/assets/placeholders/life-4.jpg";
-import life5 from "@/assets/placeholders/life-5.jpg";
-import life6 from "@/assets/placeholders/life-6.jpg";
+import logoAsset from "@/assets/onehope/logo.png.asset.json";
+import hero from "@/assets/onehope/IMG_4336-scaled.jpg.asset.json";
+import story from "@/assets/onehope/16366.jpg.asset.json";
+import life1 from "@/assets/onehope/IMG_0278-scaled.jpg.asset.json";
+import life2 from "@/assets/onehope/15456.jpg.asset.json";
+import life3 from "@/assets/onehope/IMG_0076-scaled.jpg.asset.json";
+import life4 from "@/assets/onehope/IMG_0124-scaled.jpg.asset.json";
+import life5 from "@/assets/onehope/15612.jpeg.asset.json";
+import life6 from "@/assets/onehope/11213.jpg.asset.json";
 
 export const siteConfig = {
   church: {
@@ -50,11 +30,12 @@ export const siteConfig = {
 
   brand: {
     logoText: "One Hope",
-    storyImageSrc: storyImage,
+    logoImageSrc: logoAsset.url,
+    storyImageSrc: story.url,
 
     heroMedia: {
       type: "image" as "image" | "video",
-      imageSrc: heroImage,
+      imageSrc: hero.url,
       videoSrc: "",
     },
   },
@@ -75,7 +56,6 @@ export const siteConfig = {
     ],
   },
 
-  // The "ramp" Timbo asked for — answers "Will I go to church there?"
   expect: [
     {
       icon: "Heart" as const,
@@ -100,15 +80,14 @@ export const siteConfig = {
   ],
 
   life: [
-    { src: life1, alt: "The One Hope family gathered on a Sunday" },
-    { src: life2, alt: "Welcoming a first-time guest" },
-    { src: life3, alt: "Teaching from the Bible" },
-    { src: life4, alt: "Friends from many backgrounds together" },
-    { src: life5, alt: "Families connecting after service" },
-    { src: life6, alt: "Serving the Tucson community" },
+    { src: life1.url, alt: "The One Hope family gathered on a Sunday" },
+    { src: life2.url, alt: "Welcoming a first-time guest" },
+    { src: life3.url, alt: "Teaching from the Bible" },
+    { src: life4.url, alt: "Friends from many backgrounds together" },
+    { src: life5.url, alt: "Families connecting after service" },
+    { src: life6.url, alt: "Serving the Tucson community" },
   ],
 
-  // Kept deliberately short — Timbo wants LESS, not more. One identity.
   ministries: [
     { name: "Plan Your First Visit", line: "New here? This is your ramp. We'll tell you exactly what to expect and make your first Sunday easy." },
     { name: "Rooted in the Word", line: "Bible-centered teaching for believers and seekers alike. Discipleship is a journey, and it starts wherever you are." },
@@ -136,13 +115,13 @@ export const siteConfig = {
     date: "[Recent Date]",
     summary:
       "Bible-centered, plainly taught. Catch the latest message on YouTube, or join us in person this Sunday.",
-    embedUrl: "", // link out to YouTube, do not self-host (keeps the site fast)
-    watchUrl: "#", // One Hope YouTube channel
+    embedUrl: "",
+    watchUrl: "#",
   },
 
   give: {
     line: "Every gift helps One Hope love Tucson well and reach more families with the gospel. Simple, secure giving through Tithely.",
-    onlineUrl: "#", // existing Tithely link
+    onlineUrl: "#",
   },
 
   welcomeVideo: {
@@ -151,7 +130,7 @@ export const siteConfig = {
     heading: "A quick hello before you visit.",
     body:
       "We know visiting a new church can feel like a big step. Here's a short hello so you know exactly who you'll be meeting on Sunday.",
-    posterSrc: storyImage,
+    posterSrc: story.url,
     embedUrl: "",
   },
 

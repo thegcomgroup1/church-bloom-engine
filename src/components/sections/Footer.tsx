@@ -7,6 +7,11 @@ export function Footer() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
           <div>
+            <img
+              src={siteConfig.brand.logoImageSrc}
+              alt={siteConfig.church.name}
+              className="mb-3 h-12 w-auto"
+            />
             <p className="font-display text-xl font-semibold text-secondary">
               {siteConfig.church.name}
             </p>
