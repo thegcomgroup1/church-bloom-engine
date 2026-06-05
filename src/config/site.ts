@@ -98,8 +98,8 @@ export const siteConfig = {
   events: [
     {
       date: "This Sunday · 10:30 AM",
-      title: "Join Us at Miller Elementary",
-      blurb: "Come a few minutes early — we'll be watching for you and help you get settled.",
+      title: "Join Us at Lawrence Primary",
+      blurb: "We've moved! Come a few minutes early — we'll be watching for you and help you get settled at our new location.",
     },
     {
       date: "Every week",
