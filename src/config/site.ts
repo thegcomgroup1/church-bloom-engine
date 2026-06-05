@@ -14,6 +14,13 @@ import life5 from "@/assets/onehope/15612.jpeg.asset.json";
 import life6 from "@/assets/onehope/11213.jpg.asset.json";
 
 export const siteConfig = {
+  announcement: {
+    enabled: true,
+    text: "We've moved! Join us Sundays at our new home — Lawrence Primary School.",
+    ctaLabel: "Get directions",
+    ctaUrl: "https://www.google.com/maps?q=4850+W+Jeffrey+Rd,+Tucson,+AZ+85746",
+  },
+
   church: {
     name: "One Hope Church",
     shortName: "One Hope",
