@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { AnnouncementBar } from "@/components/sections/AnnouncementBar";
 import { StickyHeader } from "@/components/sections/StickyHeader";
 import { Hero } from "@/components/sections/Hero";
 import { TimesLocation } from "@/components/sections/TimesLocation";
