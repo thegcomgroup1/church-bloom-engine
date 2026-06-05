@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { AnnouncementBar } from "@/components/sections/AnnouncementBar";
 import { StickyHeader } from "@/components/sections/StickyHeader";
 import { Hero } from "@/components/sections/Hero";
 import { TimesLocation } from "@/components/sections/TimesLocation";
@@ -20,13 +21,13 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Visiting for the first time? Sundays at 10:30 AM at Miller Elementary in Tucson. You'll be greeted, brought in, and loved.",
+          "Visiting for the first time? Sundays at 10:30 AM at Lawrence Primary School in Tucson. You'll be greeted, brought in, and loved.",
       },
       { property: "og:title", content: "One Hope Church — A Bible-centered family in Tucson, AZ" },
       {
         property: "og:description",
         content:
-          "Sundays at 10:30 AM at Miller Elementary in Tucson. Come as you are. Be known. Be loved.",
+          "Sundays at 10:30 AM at Lawrence Primary School in Tucson. Come as you are. Be known. Be loved.",
       },
       { property: "og:type", content: "website" },
     ],
@@ -37,6 +38,7 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <AnnouncementBar />
       <StickyHeader />
       <main>
         <Hero />

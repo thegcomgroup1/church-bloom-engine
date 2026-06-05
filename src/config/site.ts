@@ -14,6 +14,13 @@ import life5 from "@/assets/onehope/15612.jpeg.asset.json";
 import life6 from "@/assets/onehope/11213.jpg.asset.json";
 
 export const siteConfig = {
+  announcement: {
+    enabled: true,
+    text: "We've moved! Join us Sundays at our new home — Lawrence Primary School.",
+    ctaLabel: "Get directions",
+    ctaUrl: "https://www.google.com/maps?q=4850+W+Jeffrey+Rd,+Tucson,+AZ+85746",
+  },
+
   church: {
     name: "One Hope Church",
     shortName: "One Hope",
@@ -45,12 +52,12 @@ export const siteConfig = {
     timesLong: [
       { day: "Sunday", time: "10:30 AM" },
     ],
-    address: "Miller Elementary School, 6951 S Camino De La Tierra, Tucson, AZ 85746",
+    address: "Lawrence Primary School, 4850 W Jeffrey Rd, Tucson, AZ 85746",
     mapEmbedUrl:
-      "https://www.google.com/maps?q=6951+S+Camino+De+La+Tierra,+Tucson,+AZ+85746&output=embed",
-    mapLinkUrl: "https://www.google.com/maps?q=6951+S+Camino+De+La+Tierra,+Tucson,+AZ+85746",
+      "https://www.google.com/maps?q=4850+W+Jeffrey+Rd,+Tucson,+AZ+85746&output=embed",
+    mapLinkUrl: "https://www.google.com/maps?q=4850+W+Jeffrey+Rd,+Tucson,+AZ+85746",
     practical: [
-      { label: "Where", value: "We meet at Miller Elementary — easy to find, easy to park" },
+      { label: "Where", value: "We meet at Lawrence Primary — easy to find, easy to park" },
       { label: "Service length", value: "About one hour" },
       { label: "What to wear", value: "Come exactly as you are" },
     ],
@@ -98,8 +105,8 @@ export const siteConfig = {
   events: [
     {
       date: "This Sunday · 10:30 AM",
-      title: "Join Us at Miller Elementary",
-      blurb: "Come a few minutes early — we'll be watching for you and help you get settled.",
+      title: "Join Us at Lawrence Primary",
+      blurb: "We've moved! Come a few minutes early — we'll be watching for you and help you get settled at our new location.",
     },
     {
       date: "Every week",
