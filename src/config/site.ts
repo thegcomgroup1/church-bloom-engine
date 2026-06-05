@@ -109,14 +109,14 @@ export const siteConfig = {
   ],
 
   sermon: {
-    title: "[Latest Message — link from the One Hope YouTube channel]",
+    title: "Latest Message",
     speaker: "Dr. Timothy Fowler",
-    series: "[Current Series]",
-    date: "[Recent Date]",
+    series: "One Hope Church",
+    date: "On YouTube",
     summary:
       "Bible-centered, plainly taught. Catch the latest message on YouTube, or join us in person this Sunday.",
-    embedUrl: "",
-    watchUrl: "#",
+    embedUrl: "https://www.youtube.com/embed/P_VkF72Wwiw",
+    watchUrl: "https://www.youtube.com/watch?v=P_VkF72Wwiw",
   },
 
   give: {
@@ -138,7 +138,7 @@ export const siteConfig = {
     phone: "(520) 940-8464",
     email: "church@onehopeaz.com",
     socials: [
-      { label: "YouTube", url: "#" },
+      { label: "YouTube", url: "https://www.youtube.com/@onehopeaz" },
       { label: "Facebook", url: "#" },
       { label: "Instagram", url: "#" },
     ],
