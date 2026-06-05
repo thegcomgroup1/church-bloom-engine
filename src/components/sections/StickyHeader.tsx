@@ -15,7 +15,7 @@ export function StickyHeader() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/85 backdrop-blur supports-[backdrop-filter]:bg-background/70">
+    <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-foreground/95 backdrop-blur supports-[backdrop-filter]:bg-foreground/90">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
         <Link to="/" hash="top" className="flex items-center gap-2">
           <img
@@ -53,7 +53,7 @@ export function StickyHeader() {
       </div>
 
       {open && (
-        <div className="border-t border-border/60 bg-background md:hidden">
+        <div className="border-t border-white/10 bg-foreground/95 md:hidden">
           <nav className="mx-auto flex max-w-6xl flex-col gap-1 px-4 py-4 sm:px-6">
             {nav.map((item) => (
               <Link
