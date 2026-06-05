@@ -121,7 +121,7 @@ export const siteConfig = {
 
   give: {
     line: "Every gift helps One Hope love Tucson well and reach more families with the gospel. Simple, secure giving through Tithely.",
-    onlineUrl: "#",
+    onlineUrl: "https://give.tithe.ly/?formId=8aed056e-6865-11ee-90fc-1260ab546d11",
   },
 
   welcomeVideo: {
