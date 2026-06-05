@@ -16,6 +16,8 @@ export function Give() {
         </p>
         <a
           href={siteConfig.give.onlineUrl}
+          target="_blank"
+          rel="noopener noreferrer"
           className="mt-8 inline-flex h-12 items-center justify-center rounded-md bg-primary px-7 text-base font-medium text-primary-foreground shadow-sm transition-all hover:brightness-110"
         >
           Give online
