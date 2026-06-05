@@ -45,12 +45,12 @@ export const siteConfig = {
     timesLong: [
       { day: "Sunday", time: "10:30 AM" },
     ],
-    address: "Miller Elementary School, 6951 S Camino De La Tierra, Tucson, AZ 85746",
+    address: "Lawrence Primary School, 4850 W Jeffrey Rd, Tucson, AZ 85746",
     mapEmbedUrl:
-      "https://www.google.com/maps?q=6951+S+Camino+De+La+Tierra,+Tucson,+AZ+85746&output=embed",
-    mapLinkUrl: "https://www.google.com/maps?q=6951+S+Camino+De+La+Tierra,+Tucson,+AZ+85746",
+      "https://www.google.com/maps?q=4850+W+Jeffrey+Rd,+Tucson,+AZ+85746&output=embed",
+    mapLinkUrl: "https://www.google.com/maps?q=4850+W+Jeffrey+Rd,+Tucson,+AZ+85746",
     practical: [
-      { label: "Where", value: "We meet at Miller Elementary — easy to find, easy to park" },
+      { label: "Where", value: "We meet at Lawrence Primary — easy to find, easy to park" },
       { label: "Service length", value: "About one hour" },
       { label: "What to wear", value: "Come exactly as you are" },
     ],
