@@ -27,7 +27,7 @@ export const Route = createFileRoute("/")({
       {
         property: "og:description",
         content:
-          "Sundays at 10:30 AM at Miller Elementary in Tucson. Come as you are. Be known. Be loved.",
+          "Sundays at 10:30 AM at Lawrence Primary School in Tucson. Come as you are. Be known. Be loved.",
       },
       { property: "og:type", content: "website" },
     ],
