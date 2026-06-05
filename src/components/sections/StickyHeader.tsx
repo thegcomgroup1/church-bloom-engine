@@ -31,7 +31,7 @@ export function StickyHeader() {
               key={item.hash}
               to="/"
               hash={item.hash}
-              className="text-sm font-medium text-foreground/80 transition-colors hover:text-foreground"
+              className="text-sm font-medium text-white/80 transition-colors hover:text-white"
             >
               {item.label}
             </Link>
@@ -45,7 +45,7 @@ export function StickyHeader() {
             onClick={() => setOpen((v) => !v)}
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-md text-foreground/80 hover:bg-muted md:hidden"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-md text-white/80 hover:bg-white/10 md:hidden"
           >
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
@@ -61,7 +61,7 @@ export function StickyHeader() {
                 to="/"
                 hash={item.hash}
                 onClick={() => setOpen(false)}
-                className="rounded-md px-3 py-3 text-base font-medium text-foreground/80 hover:bg-muted"
+                className="rounded-md px-3 py-3 text-base font-medium text-white/80 hover:bg-white/10"
               >
                 {item.label}
               </Link>
