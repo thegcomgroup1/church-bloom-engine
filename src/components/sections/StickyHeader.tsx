@@ -15,7 +15,7 @@ export function StickyHeader() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/85 backdrop-blur supports-[backdrop-filter]:bg-background/70">
+    <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-foreground/95 backdrop-blur supports-[backdrop-filter]:bg-foreground/90">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
         <Link to="/" hash="top" className="flex items-center gap-2">
           <img
@@ -31,7 +31,7 @@ export function StickyHeader() {
               key={item.hash}
               to="/"
               hash={item.hash}
-              className="text-sm font-medium text-foreground/80 transition-colors hover:text-foreground"
+              className="text-sm font-medium text-white/80 transition-colors hover:text-white"
             >
               {item.label}
             </Link>
@@ -45,7 +45,7 @@ export function StickyHeader() {
             onClick={() => setOpen((v) => !v)}
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-md text-foreground/80 hover:bg-muted md:hidden"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-md text-white/80 hover:bg-white/10 md:hidden"
           >
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
@@ -53,7 +53,7 @@ export function StickyHeader() {
       </div>
 
       {open && (
-        <div className="border-t border-border/60 bg-background md:hidden">
+        <div className="border-t border-white/10 bg-foreground/95 md:hidden">
           <nav className="mx-auto flex max-w-6xl flex-col gap-1 px-4 py-4 sm:px-6">
             {nav.map((item) => (
               <Link
@@ -61,7 +61,7 @@ export function StickyHeader() {
                 to="/"
                 hash={item.hash}
                 onClick={() => setOpen(false)}
-                className="rounded-md px-3 py-3 text-base font-medium text-foreground/80 hover:bg-muted"
+                className="rounded-md px-3 py-3 text-base font-medium text-white/80 hover:bg-white/10"
               >
                 {item.label}
               </Link>
