@@ -21,7 +21,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Visiting for the first time? Sundays at 10:30 AM at Miller Elementary in Tucson. You'll be greeted, brought in, and loved.",
+          "Visiting for the first time? Sundays at 10:30 AM at Lawrence Primary School in Tucson. You'll be greeted, brought in, and loved.",
       },
       { property: "og:title", content: "One Hope Church — A Bible-centered family in Tucson, AZ" },
       {
