@@ -40,14 +40,24 @@ export function Sermons() {
           </div>
 
           <div className="aspect-video overflow-hidden rounded-xl border border-white/15 bg-black/40">
-            <div className="flex h-full w-full items-center justify-center text-secondary-foreground/60">
-              <div className="text-center">
-                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-white/10">
-                  <Play className="h-7 w-7" aria-hidden />
+            {sermon.embedUrl ? (
+              <iframe
+                src={sermon.embedUrl}
+                title={sermon.title}
+                className="h-full w-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            ) : (
+              <div className="flex h-full w-full items-center justify-center text-secondary-foreground/60">
+                <div className="text-center">
+                  <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-white/10">
+                    <Play className="h-7 w-7" aria-hidden />
+                  </div>
+                  <p className="mt-4 text-sm">[Sermon video embed]</p>
                 </div>
-                <p className="mt-4 text-sm">[Sermon video embed]</p>
               </div>
-            </div>
+            )}
           </div>
         </div>
       </div>
