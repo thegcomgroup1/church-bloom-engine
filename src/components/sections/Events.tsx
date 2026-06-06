@@ -39,7 +39,7 @@ export function Events() {
                 href="#"
                 className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-secondary hover:underline"
               >
-                Learn more
+                View event details
                 <ArrowRight className="h-4 w-4" aria-hidden />
               </a>
             </article>
