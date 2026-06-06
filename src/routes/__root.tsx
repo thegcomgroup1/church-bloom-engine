@@ -77,18 +77,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "One Hope Church" },
-      { name: "description", content: "A parameterized church website engine that rapidly generates custom-feeling homepages from a reusable base." },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "One Hope Church" },
-      { property: "og:description", content: "A parameterized church website engine that rapidly generates custom-feeling homepages from a reusable base." },
+      { title: "One Hope Church — Tucson, AZ" },
+      { name: "description", content: "A Bible-centered family in Tucson. Sundays at 10:30 AM at Lawrence Primary School. Come as you are. Be known. Be loved." },
+      { name: "author", content: "One Hope Church" },
+      { property: "og:site_name", content: "One Hope Church" },
+      { property: "og:title", content: "One Hope Church — Tucson, AZ" },
+      { property: "og:description", content: "Join us Sundays at 10:30 AM in Tucson. You'll be greeted, brought in, and loved." },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
-      { name: "twitter:title", content: "One Hope Church" },
-      { name: "twitter:description", content: "A parameterized church website engine that rapidly generates custom-feeling homepages from a reusable base." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/1ae7cc25-a9f0-49a5-87a5-42e6874894da/id-preview-eda146ae--f5e1e7dd-a590-42f1-8c48-f3b478ffc25f.lovable.app-1780692291255.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/1ae7cc25-a9f0-49a5-87a5-42e6874894da/id-preview-eda146ae--f5e1e7dd-a590-42f1-8c48-f3b478ffc25f.lovable.app-1780692291255.png" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "One Hope Church — Tucson, AZ" },
+      { name: "twitter:description", content: "Join us Sundays at 10:30 AM in Tucson. You'll be greeted, brought in, and loved." },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -100,6 +98,30 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         rel: "stylesheet",
         href: appCss,
+      },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Organization",
+              "@id": "https://onehopeaz.com/#organization",
+              name: "One Hope Church",
+              url: "https://onehopeaz.com",
+              sameAs: ["https://www.youtube.com/@onehopeaz"],
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://onehopeaz.com/#website",
+              url: "https://onehopeaz.com",
+              name: "One Hope Church",
+              publisher: { "@id": "https://onehopeaz.com/#organization" },
+            },
+          ],
+        }),
       },
     ],
   }),
