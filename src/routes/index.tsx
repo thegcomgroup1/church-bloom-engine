@@ -13,6 +13,7 @@ import { Sermons } from "@/components/sections/Sermons";
 import { Give } from "@/components/sections/Give";
 import { PlanYourVisit } from "@/components/sections/PlanYourVisit";
 import { Footer } from "@/components/sections/Footer";
+import { siteConfig } from "@/config/site";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -30,6 +31,65 @@ export const Route = createFileRoute("/")({
           "Sundays at 10:30 AM at Lawrence Primary School in Tucson. Come as you are. Be known. Be loved.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://onehopeaz.com/" },
+    ],
+    links: [{ rel: "canonical", href: "https://onehopeaz.com/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Church",
+          name: siteConfig.church.name,
+          url: "https://onehopeaz.com/",
+          telephone: siteConfig.contact.phone,
+          email: siteConfig.contact.email,
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "4850 W Jeffrey Rd",
+            addressLocality: "Tucson",
+            addressRegion: "AZ",
+            postalCode: "85746",
+            addressCountry: "US",
+          },
+          openingHoursSpecification: [
+            {
+              "@type": "OpeningHoursSpecification",
+              dayOfWeek: "Sunday",
+              opens: "10:30",
+              closes: "11:30",
+            },
+          ],
+          sameAs: ["https://www.youtube.com/@onehopeaz"],
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: [
+            {
+              "@type": "Question",
+              name: "Where does One Hope Church meet?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "We meet at Lawrence Primary School, 4850 W Jeffrey Rd, Tucson, AZ 85746 — easy to find, easy to park.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "How long is the service?",
+              acceptedAnswer: { "@type": "Answer", text: "About one hour." },
+            },
+            {
+              "@type": "Question",
+              name: "What should I wear?",
+              acceptedAnswer: { "@type": "Answer", text: "Come exactly as you are — casual and warm." },
+            },
+          ],
+        }),
+      },
     ],
   }),
   component: Index,
