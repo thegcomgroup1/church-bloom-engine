@@ -24,6 +24,8 @@ export function Hero() {
         alt={`The ${siteConfig.church.name} congregation gathering on a Sunday morning`}
         width={1920}
         height={1080}
+        fetchPriority="high"
+        decoding="async"
         className="absolute inset-0 -z-10 h-full w-full object-cover"
       />
 
