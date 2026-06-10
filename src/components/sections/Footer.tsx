@@ -1,11 +1,22 @@
+import { Link } from "@tanstack/react-router";
 import { siteConfig } from "@/config/site";
+
+const sitemap = [
+  { label: "Home", to: "/" as const },
+  { label: "Plan a Visit", to: "/plan-a-visit" as const },
+  { label: "About", to: "/about" as const },
+  { label: "Leadership", to: "/leadership" as const },
+  { label: "Sermons", to: "/sermons" as const },
+  { label: "Give", to: "/give" as const },
+  { label: "Contact", to: "/contact" as const },
+];
 
 export function Footer() {
   const year = new Date().getFullYear();
   return (
     <footer className="border-t border-border bg-background py-12">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
+        <div className="grid gap-10 md:grid-cols-3">
           <div>
             <img
               src={siteConfig.brand.logoImageSrc}
@@ -21,17 +32,40 @@ export function Footer() {
             </p>
           </div>
 
-          <nav aria-label="Social" className="flex flex-wrap gap-x-6 gap-y-2">
-            {siteConfig.contact.socials.map((s) => (
-              <a
-                key={s.label}
-                href={s.url}
-                className="text-sm font-medium text-foreground/80 hover:text-foreground"
-              >
-                {s.label}
-              </a>
-            ))}
-          </nav>
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+              Explore
+            </p>
+            <ul className="mt-3 grid grid-cols-2 gap-y-2">
+              {sitemap.map((s) => (
+                <li key={s.to}>
+                  <Link
+                    to={s.to}
+                    className="text-sm font-medium text-foreground/80 hover:text-foreground"
+                  >
+                    {s.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+              Follow along
+            </p>
+            <nav aria-label="Social" className="mt-3 flex flex-col gap-2">
+              {siteConfig.contact.socials.map((s) => (
+                <a
+                  key={s.label}
+                  href={s.url}
+                  className="text-sm font-medium text-foreground/80 hover:text-foreground"
+                >
+                  {s.label}
+                </a>
+              ))}
+            </nav>
+          </div>
         </div>
 
         <div className="mt-10 border-t border-border pt-6 text-xs text-muted-foreground">
