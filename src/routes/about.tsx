@@ -4,7 +4,9 @@ import { StickyHeader } from "@/components/sections/StickyHeader";
 import { Footer } from "@/components/sections/Footer";
 import { LifeOfChurch } from "@/components/sections/LifeOfChurch";
 import { PlanYourVisitButton } from "@/components/PlanYourVisitButton";
+import { PageHero } from "@/components/sections/PageHero";
 import { siteConfig } from "@/config/site";
+
 
 const beliefs = [
   {
@@ -62,20 +64,14 @@ function AboutPage() {
       <AnnouncementBar />
       <StickyHeader />
       <main>
-        {/* Hero */}
-        <section className="bg-secondary py-20 text-secondary-foreground md:py-28">
-          <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
-            <p className="mb-3 text-sm font-medium uppercase tracking-widest text-secondary-foreground/70">
-              About us
-            </p>
-            <h1 className="font-display text-4xl font-semibold md:text-5xl lg:text-6xl">
-              {siteConfig.church.tagline}
-            </h1>
-            <p className="mx-auto mt-5 max-w-2xl text-base text-secondary-foreground/85 md:text-lg">
-              {siteConfig.church.mission}
-            </p>
-          </div>
-        </section>
+        <PageHero
+          imageSrc={siteConfig.brand.pageHeroes.about}
+          imageAlt="The One Hope Church family together"
+          eyebrow="About us"
+          title={siteConfig.church.tagline}
+          intro={siteConfig.church.mission}
+        />
+
 
         {/* Story */}
         <section className="py-20 md:py-28">

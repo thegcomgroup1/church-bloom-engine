@@ -4,6 +4,9 @@ import { AnnouncementBar } from "@/components/sections/AnnouncementBar";
 import { StickyHeader } from "@/components/sections/StickyHeader";
 import { Footer } from "@/components/sections/Footer";
 import { PlanYourVisitButton } from "@/components/PlanYourVisitButton";
+import { PageHero } from "@/components/sections/PageHero";
+import { siteConfig } from "@/config/site";
+
 
 type Leader = {
   name: string;
@@ -84,21 +87,14 @@ function LeadershipPage() {
       <AnnouncementBar />
       <StickyHeader />
       <main>
-        {/* Hero */}
-        <section className="bg-secondary py-20 text-secondary-foreground md:py-28">
-          <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
-            <p className="mb-3 text-sm font-medium uppercase tracking-widest text-secondary-foreground/70">
-              Our team
-            </p>
-            <h1 className="font-display text-4xl font-semibold md:text-5xl lg:text-6xl">
-              The people behind One Hope.
-            </h1>
-            <p className="mx-auto mt-5 max-w-2xl text-base text-secondary-foreground/85 md:text-lg">
-              Real people who love Jesus, love Tucson, and would love to meet you. No celebrities,
-              no posturing — just shepherds who care.
-            </p>
-          </div>
-        </section>
+        <PageHero
+          imageSrc={siteConfig.brand.pageHeroes.leadership}
+          imageAlt="Teaching from the Bible at One Hope Church"
+          eyebrow="Our team"
+          title="The people behind One Hope."
+          intro="Real people who love Jesus, love Tucson, and would love to meet you. No celebrities, no posturing — just shepherds who care."
+        />
+
 
         {/* Grid */}
         <section className="py-20 md:py-28">
