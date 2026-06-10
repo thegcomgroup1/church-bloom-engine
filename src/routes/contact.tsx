@@ -1,10 +1,12 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
 import { MapPin, Phone, Mail, Clock, Check } from "lucide-react";
 import { AnnouncementBar } from "@/components/sections/AnnouncementBar";
 import { StickyHeader } from "@/components/sections/StickyHeader";
 import { Footer } from "@/components/sections/Footer";
+import { PageHero } from "@/components/sections/PageHero";
 import { siteConfig } from "@/config/site";
+
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -41,21 +43,23 @@ function ContactPage() {
       <AnnouncementBar />
       <StickyHeader />
       <main>
-        {/* Hero */}
-        <section className="bg-secondary py-20 text-secondary-foreground md:py-24">
-          <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
-            <p className="mb-3 text-sm font-medium uppercase tracking-widest text-secondary-foreground/70">
-              Contact
-            </p>
-            <h1 className="font-display text-4xl font-semibold md:text-5xl lg:text-6xl">
-              We'd love to hear from you.
-            </h1>
-            <p className="mx-auto mt-5 max-w-2xl text-base text-secondary-foreground/85 md:text-lg">
-              Questions, prayer requests, or just want to say hi — drop us a note and we'll get
-              back to you.
-            </p>
-          </div>
-        </section>
+        <PageHero
+          imageSrc={siteConfig.brand.pageHeroes.contact}
+          imageAlt="A One Hope Church volunteer welcoming a first-time guest"
+          eyebrow="Contact"
+          title="We'd love to hear from you."
+          intro="Questions, prayer requests, or just want to say hi — drop us a note and we'll get back to you."
+        />
+        <div className="border-b border-border/60 bg-muted/40 py-6 text-center">
+          <p className="mx-auto max-w-2xl px-4 text-sm text-muted-foreground sm:px-6">
+            Planning your first visit?{" "}
+            <Link to="/plan-a-visit" className="font-medium text-primary underline-offset-4 hover:underline">
+              Use the Plan a Visit page
+            </Link>{" "}
+            so we can have someone ready to welcome you by name.
+          </p>
+        </div>
+
 
         {/* Contact grid */}
         <section className="py-20 md:py-24">

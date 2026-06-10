@@ -5,7 +5,9 @@ import { StickyHeader } from "@/components/sections/StickyHeader";
 import { Footer } from "@/components/sections/Footer";
 import { WhatToExpect } from "@/components/sections/WhatToExpect";
 import { PlanYourVisit } from "@/components/sections/PlanYourVisit";
+import { PageHero } from "@/components/sections/PageHero";
 import { siteConfig } from "@/config/site";
+
 
 const faqs = [
   {
@@ -73,21 +75,14 @@ function PlanAVisitPage() {
       <AnnouncementBar />
       <StickyHeader />
       <main>
-        {/* Hero */}
-        <section className="bg-secondary py-20 text-secondary-foreground md:py-28">
-          <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
-            <p className="mb-3 text-sm font-medium uppercase tracking-widest text-secondary-foreground/70">
-              Plan your visit
-            </p>
-            <h1 className="font-display text-4xl font-semibold md:text-5xl lg:text-6xl">
-              Your first Sunday, made easy.
-            </h1>
-            <p className="mx-auto mt-5 max-w-2xl text-base text-secondary-foreground/85 md:text-lg">
-              We'd love to meet you. Here's everything you need to walk in confident on Sunday — no
-              guessing, no surprises.
-            </p>
-          </div>
-        </section>
+        <PageHero
+          imageSrc={siteConfig.brand.pageHeroes.planAVisit}
+          imageAlt="One Hope Church gathered on a Sunday morning"
+          eyebrow="Plan your visit"
+          title="Your first Sunday, made easy."
+          intro="We'd love to meet you. Here's everything you need to walk in confident on Sunday — no guessing, no surprises."
+        />
+
 
         {/* Times & Location */}
         <section className="border-b border-border/60 bg-muted/40 py-20 md:py-24">

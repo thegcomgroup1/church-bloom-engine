@@ -3,7 +3,9 @@ import { Heart, ShieldCheck, MapPin, Mail } from "lucide-react";
 import { AnnouncementBar } from "@/components/sections/AnnouncementBar";
 import { StickyHeader } from "@/components/sections/StickyHeader";
 import { Footer } from "@/components/sections/Footer";
+import { PageHero } from "@/components/sections/PageHero";
 import { siteConfig } from "@/config/site";
+
 
 export const Route = createFileRoute("/give")({
   head: () => ({
@@ -34,32 +36,30 @@ function GivePage() {
       <AnnouncementBar />
       <StickyHeader />
       <main>
-        {/* Hero */}
-        <section className="bg-secondary py-20 text-secondary-foreground md:py-28">
-          <div className="mx-auto max-w-3xl px-4 text-center sm:px-6">
-            <div className="mx-auto inline-flex h-14 w-14 items-center justify-center rounded-full bg-primary/20 text-primary">
-              <Heart className="h-6 w-6" aria-hidden />
-            </div>
-            <h1 className="mt-6 font-display text-4xl font-semibold md:text-5xl lg:text-6xl">
-              Generosity, made simple.
-            </h1>
-            <p className="mx-auto mt-5 max-w-2xl text-base text-secondary-foreground/85 md:text-lg">
-              {siteConfig.give.line}
-            </p>
+        <PageHero
+          imageSrc={siteConfig.brand.pageHeroes.give}
+          imageAlt="The One Hope Church family serving together"
+          eyebrow="Give"
+          title="Generosity, made simple."
+          intro={siteConfig.give.line}
+        >
+          <div className="flex flex-col items-center gap-3">
             <a
               href={siteConfig.give.onlineUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-8 inline-flex h-12 items-center justify-center rounded-md bg-primary px-8 text-base font-medium text-primary-foreground shadow-sm transition-all hover:brightness-110"
+              className="inline-flex h-12 items-center justify-center rounded-md bg-primary px-8 text-base font-medium text-primary-foreground shadow-sm transition-all hover:brightness-110"
             >
+              <Heart className="mr-2 h-4 w-4" aria-hidden />
               Give online
             </a>
-            <p className="mt-4 flex items-center justify-center gap-2 text-xs text-secondary-foreground/70">
+            <p className="flex items-center gap-2 text-xs text-white/80">
               <ShieldCheck className="h-3.5 w-3.5" aria-hidden />
               Secure giving via Tithely
             </p>
           </div>
-        </section>
+        </PageHero>
+
 
         {/* Other ways */}
         <section className="py-20 md:py-28">
