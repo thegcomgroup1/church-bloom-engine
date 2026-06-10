@@ -45,7 +45,18 @@ export const siteConfig = {
       imageSrc: hero.url,
       videoSrc: "",
     },
+
+    /** Per-page hero photos for interior routes. */
+    pageHeroes: {
+      planAVisit: hero.url,
+      about: story.url,
+      leadership: life3.url,
+      give: life4.url,
+      contact: life2.url,
+      sermons: life3.url,
+    },
   },
+
 
   service: {
     timesShort: "Sundays · 10:30 AM",
