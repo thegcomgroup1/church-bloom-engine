@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as UnsubscribeRouteImport } from './routes/unsubscribe'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SermonsRouteImport } from './routes/sermons'
 import { Route as PlanAVisitRouteImport } from './routes/plan-a-visit'
@@ -23,6 +24,11 @@ import { Route as LovableEmailTransactionalSendRouteImport } from './routes/lova
 import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/lovable/email/transactional/preview'
 import { Route as LovableEmailQueueProcessRouteImport } from './routes/lovable/email/queue/process'
 
+const UnsubscribeRoute = UnsubscribeRouteImport.update({
+  id: '/unsubscribe',
+  path: '/unsubscribe',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
@@ -101,6 +107,7 @@ export interface FileRoutesByFullPath {
   '/plan-a-visit': typeof PlanAVisitRoute
   '/sermons': typeof SermonsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/unsubscribe': typeof UnsubscribeRoute
   '/email/unsubscribe': typeof EmailUnsubscribeRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
@@ -116,6 +123,7 @@ export interface FileRoutesByTo {
   '/plan-a-visit': typeof PlanAVisitRoute
   '/sermons': typeof SermonsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/unsubscribe': typeof UnsubscribeRoute
   '/email/unsubscribe': typeof EmailUnsubscribeRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
@@ -132,6 +140,7 @@ export interface FileRoutesById {
   '/plan-a-visit': typeof PlanAVisitRoute
   '/sermons': typeof SermonsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/unsubscribe': typeof UnsubscribeRoute
   '/email/unsubscribe': typeof EmailUnsubscribeRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
@@ -149,6 +158,7 @@ export interface FileRouteTypes {
     | '/plan-a-visit'
     | '/sermons'
     | '/sitemap.xml'
+    | '/unsubscribe'
     | '/email/unsubscribe'
     | '/lovable/email/suppression'
     | '/lovable/email/queue/process'
@@ -164,6 +174,7 @@ export interface FileRouteTypes {
     | '/plan-a-visit'
     | '/sermons'
     | '/sitemap.xml'
+    | '/unsubscribe'
     | '/email/unsubscribe'
     | '/lovable/email/suppression'
     | '/lovable/email/queue/process'
@@ -179,6 +190,7 @@ export interface FileRouteTypes {
     | '/plan-a-visit'
     | '/sermons'
     | '/sitemap.xml'
+    | '/unsubscribe'
     | '/email/unsubscribe'
     | '/lovable/email/suppression'
     | '/lovable/email/queue/process'
@@ -195,6 +207,7 @@ export interface RootRouteChildren {
   PlanAVisitRoute: typeof PlanAVisitRoute
   SermonsRoute: typeof SermonsRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  UnsubscribeRoute: typeof UnsubscribeRoute
   EmailUnsubscribeRoute: typeof EmailUnsubscribeRoute
   LovableEmailSuppressionRoute: typeof LovableEmailSuppressionRoute
   LovableEmailQueueProcessRoute: typeof LovableEmailQueueProcessRoute
@@ -204,6 +217,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/unsubscribe': {
+      id: '/unsubscribe'
+      path: '/unsubscribe'
+      fullPath: '/unsubscribe'
+      preLoaderRoute: typeof UnsubscribeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sitemap.xml': {
       id: '/sitemap.xml'
       path: '/sitemap.xml'
@@ -307,6 +327,7 @@ const rootRouteChildren: RootRouteChildren = {
   PlanAVisitRoute: PlanAVisitRoute,
   SermonsRoute: SermonsRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  UnsubscribeRoute: UnsubscribeRoute,
   EmailUnsubscribeRoute: EmailUnsubscribeRoute,
   LovableEmailSuppressionRoute: LovableEmailSuppressionRoute,
   LovableEmailQueueProcessRoute: LovableEmailQueueProcessRoute,
@@ -316,3 +337,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
