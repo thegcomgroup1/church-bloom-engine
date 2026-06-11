@@ -16,7 +16,7 @@ const VisitPlanInput = z.object({
 export const submitVisitPlan = createServerFn({ method: "POST" })
   .inputValidator((data: unknown) => VisitPlanInput.parse(data))
   .handler(async ({ data }) => {
-    // Spam trap
+    // Spam trap — silently accept and bail
     if (data.website && data.website.length > 0) {
       return { ok: true as const, id: null };
     }
@@ -36,12 +36,58 @@ export const submitVisitPlan = createServerFn({ method: "POST" })
     const { data: row, error } = await supabaseAdmin
       .from("visit_plans")
       .insert(payload)
-      .select("id")
+      .select("id, created_at")
       .single();
 
     if (error) {
       console.error("[visit_plans] insert failed", error);
       throw new Error("We couldn't save your request. Please try again or call us.");
+    }
+
+    // Fire-and-log emails. Failures NEVER fail the submission — the row is
+    // already saved and the visitor still sees the success state.
+    try {
+      const { sendTransactionalEmailInternal } = await import(
+        "@/lib/email/send-transactional.server"
+      );
+      const { siteConfig } = await import("@/config/site");
+
+      const staffRecipient = siteConfig.contact.notificationEmail;
+      const submittedAt = row.created_at;
+
+      const [guestResult, staffResult] = await Promise.allSettled([
+        sendTransactionalEmailInternal({
+          templateName: "visit-confirmation",
+          recipientEmail: data.email,
+          idempotencyKey: `visit-confirm-${row.id}`,
+          templateData: { name: data.name },
+        }),
+        sendTransactionalEmailInternal({
+          templateName: "visit-staff-notification",
+          recipientEmail: staffRecipient,
+          idempotencyKey: `visit-staff-${row.id}`,
+          replyTo: data.email,
+          templateData: {
+            name: data.name,
+            email: data.email,
+            phone: data.phone || null,
+            partySize: data.partySize ?? null,
+            plannedDate: data.plannedDate || null,
+            howHeard: data.howHeard || null,
+            note: data.note || null,
+            submittedAt,
+          },
+        }),
+      ]);
+
+      if (guestResult.status === "rejected" || (guestResult.status === "fulfilled" && !guestResult.value.ok)) {
+        console.error("[visit_plans] guest email failed", guestResult);
+      }
+      if (staffResult.status === "rejected" || (staffResult.status === "fulfilled" && !staffResult.value.ok)) {
+        console.error("[visit_plans] staff email failed", staffResult);
+      }
+    } catch (emailErr) {
+      console.error("[visit_plans] email pipeline error", emailErr);
     }
 
     return { ok: true as const, id: row.id };

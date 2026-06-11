@@ -155,6 +155,8 @@ export const siteConfig = {
   contact: {
     phone: "(520) 940-8464",
     email: "church@onehopeaz.com",
+    /** Inbox that receives visit-plan notifications and other internal alerts. */
+    notificationEmail: "church@onehopeaz.com",
     socials: [
       { label: "YouTube", url: "https://www.youtube.com/@onehopeaz" },
       { label: "Facebook", url: "#" },
