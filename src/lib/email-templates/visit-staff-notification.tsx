@@ -23,12 +23,14 @@ interface Props {
   submittedAt?: string
 }
 
-const fmtRow = (label: string, value: string | number | null | undefined) => (
-  <Text style={row}>
-    <span style={rowLabel}>{label}</span>
-    <span style={rowValue}>{value !== undefined && value !== null && value !== '' ? String(value) : '—'}</span>
-  </Text>
-)
+function Row({ label, children }: { label: string; children: React.ReactNode }) {
+  return (
+    <Text style={row}>
+      <span style={rowLabel}>{label}</span>
+      <span style={rowValue}>{children}</span>
+    </Text>
+  )
+}
 
 const Email = ({
   name,
@@ -50,22 +52,28 @@ const Email = ({
           Someone just filled out the Plan a Visit form on onehopeaz.com.
         </Text>
 
-        {fmtRow('Name', name)}
-        {fmtRow(
-          'Email',
-          email ? (
-            (<Link href={`mailto:${email}`} style={link as React.CSSProperties}>{email}</Link>) as any
-          ) : null,
-        )}
-        {fmtRow(
-          'Phone',
-          phone ? (
-            (<Link href={`tel:${phone}`} style={link as React.CSSProperties}>{phone}</Link>) as any
-          ) : null,
-        )}
-        {fmtRow('Party size', partySize)}
-        {fmtRow('Planned Sunday', plannedDate)}
-        {fmtRow('How they heard', howHeard)}
+        <Row label="Name">{name || '—'}</Row>
+        <Row label="Email">
+          {email ? (
+            <Link href={`mailto:${email}`} style={link}>
+              {email}
+            </Link>
+          ) : (
+            '—'
+          )}
+        </Row>
+        <Row label="Phone">
+          {phone ? (
+            <Link href={`tel:${phone}`} style={link}>
+              {phone}
+            </Link>
+          ) : (
+            '—'
+          )}
+        </Row>
+        <Row label="Party size">{partySize ? String(partySize) : '—'}</Row>
+        <Row label="Planned Sunday">{plannedDate || '—'}</Row>
+        <Row label="How they heard">{howHeard || '—'}</Row>
 
         <Hr style={divider} />
 
@@ -74,12 +82,8 @@ const Email = ({
 
         <Hr style={divider} />
 
-        <Text style={meta}>
-          Submitted {submittedAt || new Date().toISOString()}
-        </Text>
-        <Text style={meta}>
-          Reply directly to this email to message the guest.
-        </Text>
+        <Text style={meta}>Submitted {submittedAt || new Date().toISOString()}</Text>
+        <Text style={meta}>Reply directly to this email to message the guest.</Text>
       </Container>
     </Body>
   </Html>
