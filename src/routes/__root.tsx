@@ -77,16 +77,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "One Hope Church — Tucson, AZ" },
-      { name: "description", content: "A Bible-centered family in Tucson. Sundays at 10:30 AM at Lawrence Primary School. Come as you are. Be known. Be loved." },
       { name: "author", content: "One Hope Church" },
       { property: "og:site_name", content: "One Hope Church" },
-      { property: "og:title", content: "One Hope Church — Tucson, AZ" },
-      { property: "og:description", content: "Join us Sundays at 10:30 AM in Tucson. You'll be greeted, brought in, and loved." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "One Hope Church — Tucson, AZ" },
-      { name: "twitter:description", content: "Join us Sundays at 10:30 AM in Tucson. You'll be greeted, brought in, and loved." },
     ],
     links: [
       { rel: "icon", href: "/favicon.ico" },
