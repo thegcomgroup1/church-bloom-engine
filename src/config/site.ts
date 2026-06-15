@@ -158,9 +158,10 @@ export const siteConfig = {
     /** Inbox that receives visit-plan notifications and other internal alerts. */
     notificationEmail: "church@onehopeaz.com",
     socials: [
+      { label: "Facebook", url: "https://www.facebook.com/onehopeaz" },
+      { label: "Instagram", url: "https://www.instagram.com/onehopeaz" },
       { label: "YouTube", url: "https://www.youtube.com/@onehopeaz" },
-      { label: "Facebook", url: "#" },
-      { label: "Instagram", url: "#" },
+      { label: "LinkedIn", url: "https://www.linkedin.com/company/one-hope-az/" },
     ],
   },
 } as const;
