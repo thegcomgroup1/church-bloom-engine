@@ -35,11 +35,11 @@ export function PageHero({
         decoding="async"
         className="absolute inset-0 -z-10 h-full w-full object-cover"
       />
-      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/70 via-black/60 to-black/80" />
 
       <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
         {eyebrow && (
-          <p className="mb-3 text-sm font-medium uppercase tracking-widest text-white/80">
+          <p className="mb-3 text-sm font-medium uppercase tracking-widest text-white/95">
             {eyebrow}
           </p>
         )}
@@ -47,7 +47,7 @@ export function PageHero({
           {title}
         </h1>
         {intro && (
-          <p className="mx-auto mt-5 max-w-2xl text-base text-white/90 md:text-lg">{intro}</p>
+          <p className="mx-auto mt-5 max-w-2xl text-base text-white md:text-lg">{intro}</p>
         )}
         {children && <div className="mt-8 flex justify-center">{children}</div>}
       </div>

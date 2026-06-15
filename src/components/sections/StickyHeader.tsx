@@ -35,7 +35,7 @@ export function StickyHeader() {
               to={item.to}
               activeOptions={{ exact: true }}
               activeProps={{ className: "text-white" }}
-              inactiveProps={{ className: "text-white/70 hover:text-white" }}
+              inactiveProps={{ className: "text-white/90 hover:text-white" }}
               className="text-sm font-medium transition-colors"
             >
               {item.label}
@@ -50,7 +50,7 @@ export function StickyHeader() {
             onClick={() => setOpen((v) => !v)}
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-md text-white/80 hover:bg-white/10 lg:hidden"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-md text-white hover:bg-white/10 lg:hidden"
           >
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
@@ -67,7 +67,7 @@ export function StickyHeader() {
                 onClick={() => setOpen(false)}
                 activeOptions={{ exact: true }}
                 activeProps={{ className: "bg-white/10 text-white" }}
-                inactiveProps={{ className: "text-white/80 hover:bg-white/10" }}
+                inactiveProps={{ className: "text-white/90 hover:bg-white/10" }}
                 className="rounded-md px-3 py-3 text-base font-medium"
               >
                 {item.label}

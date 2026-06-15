@@ -41,7 +41,7 @@ export function Footer() {
                 <li key={s.to}>
                   <Link
                     to={s.to}
-                    className="text-sm font-medium text-foreground/80 hover:text-foreground"
+                    className="text-sm font-medium text-foreground hover:text-primary"
                   >
                     {s.label}
                   </Link>
@@ -59,7 +59,7 @@ export function Footer() {
                 <a
                   key={s.label}
                   href={s.url}
-                  className="text-sm font-medium text-foreground/80 hover:text-foreground"
+                  className="text-sm font-medium text-foreground hover:text-primary"
                 >
                   {s.label}
                 </a>
