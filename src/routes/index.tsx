@@ -15,6 +15,8 @@ import { PlanYourVisit } from "@/components/sections/PlanYourVisit";
 import { Footer } from "@/components/sections/Footer";
 import { siteConfig } from "@/config/site";
 
+const HERO_IMAGE_URL = siteConfig.brand.heroMedia.imageSrc;
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
@@ -33,7 +35,10 @@ export const Route = createFileRoute("/")({
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://onehopeaz.com/" },
     ],
-    links: [{ rel: "canonical", href: "https://onehopeaz.com/" }],
+    links: [
+      { rel: "canonical", href: "https://onehopeaz.com/" },
+      { rel: "preload", as: "image", href: HERO_IMAGE_URL, fetchpriority: "high" },
+    ],
     scripts: [
       {
         type: "application/ld+json",
