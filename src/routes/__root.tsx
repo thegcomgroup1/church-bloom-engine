@@ -11,6 +11,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { siteConfig } from "../config/site";
 
 function NotFoundComponent() {
   return (
@@ -109,7 +110,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
               "@id": "https://onehopeaz.com/#organization",
               name: "One Hope Church",
               url: "https://onehopeaz.com",
-              sameAs: ["https://www.youtube.com/@onehopeaz"],
+              sameAs: siteConfig.contact.socials.map((s) => s.url),
             },
             {
               "@type": "WebSite",
