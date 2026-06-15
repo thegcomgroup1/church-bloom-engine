@@ -161,7 +161,6 @@ export const siteConfig = {
       { label: "Facebook", url: "https://www.facebook.com/onehopeaz" },
       { label: "Instagram", url: "https://www.instagram.com/onehopeaz" },
       { label: "YouTube", url: "https://www.youtube.com/@onehopeaz" },
-      { label: "LinkedIn", url: "https://www.linkedin.com/company/one-hope-az/" },
     ],
   },
 } as const;
