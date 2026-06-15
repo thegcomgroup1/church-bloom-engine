@@ -46,16 +46,16 @@ export function Hero() {
         </video>
       )}
 
-      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/55 via-black/45 to-black/65" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/70 via-black/60 to-black/75" />
 
       <div className="mx-auto flex min-h-[640px] max-w-6xl flex-col items-start justify-center px-4 py-24 sm:px-6 md:min-h-[720px] md:py-32">
-        <p className="mb-4 text-sm font-medium uppercase tracking-widest text-white/80">
+        <p className="mb-4 text-sm font-medium uppercase tracking-widest text-white/95">
           {siteConfig.church.foundedLine}
         </p>
         <h1 className="max-w-3xl font-display text-4xl font-semibold leading-[1.05] text-white sm:text-5xl md:text-6xl lg:text-[64px]">
           You're welcome at {siteConfig.church.name}.
         </h1>
-        <p className="mt-6 max-w-2xl text-lg text-white/90 md:text-xl">
+        <p className="mt-6 max-w-2xl text-lg text-white md:text-xl">
           {siteConfig.church.mission}
         </p>
 
@@ -69,7 +69,7 @@ export function Hero() {
           </a>
         </div>
 
-        <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 text-white/90">
+        <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 text-white">
           <div className="flex items-center gap-2">
             <Clock className="h-4 w-4" aria-hidden />
             <span className="text-sm font-medium">{siteConfig.service.timesShort}</span>

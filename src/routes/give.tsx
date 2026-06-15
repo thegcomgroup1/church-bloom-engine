@@ -53,7 +53,7 @@ function GivePage() {
               <Heart className="mr-2 h-4 w-4" aria-hidden />
               Give online
             </a>
-            <p className="flex items-center gap-2 text-xs text-white/80">
+            <p className="flex items-center gap-2 text-xs text-white/95">
               <ShieldCheck className="h-3.5 w-3.5" aria-hidden />
               Secure giving via Tithely
             </p>
