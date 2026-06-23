@@ -5,7 +5,9 @@ import { StickyHeader } from "@/components/sections/StickyHeader";
 import { Footer } from "@/components/sections/Footer";
 import { PlanYourVisitButton } from "@/components/PlanYourVisitButton";
 import { PageHero } from "@/components/sections/PageHero";
+import { siteConfig } from "@/config/site";
 import timothyPhoto from "@/assets/leadership/timothy-fowler.jpg.asset.json";
+import alexPhoto from "@/assets/leadership/alex-karnaushenko.jpg.asset.json";
 import alexPhoto from "@/assets/leadership/alex-karnaushenko.jpg.asset.json";
 
 
