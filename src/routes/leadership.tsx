@@ -88,13 +88,13 @@ function LeadershipPage() {
         {/* Grid */}
         <section className="py-20 md:py-28">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
-            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="mx-auto grid max-w-4xl gap-8 sm:grid-cols-2">
               {leaders.map((l, i) => (
                 <article
                   key={i}
                   className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm"
                 >
-                  <div className="flex aspect-square items-center justify-center bg-muted">
+                  <div className="flex aspect-[4/3] items-center justify-center bg-muted">
                     <img
                       src={l.photoUrl}
                       alt={l.name}
