@@ -12,7 +12,7 @@ export function MissionStory() {
             <h2 className="font-display text-3xl font-semibold md:text-4xl lg:text-5xl">
               {siteConfig.church.tagline}
             </h2>
-            <div className="mt-6 space-y-5 text-base leading-relaxed text-foreground/85 md:text-lg">
+            <div className="mt-6 space-y-5 text-base leading-relaxed text-foreground md:text-lg">
               {siteConfig.church.story.map((p, i) => (
                 <p key={i}>{p}</p>
               ))}
