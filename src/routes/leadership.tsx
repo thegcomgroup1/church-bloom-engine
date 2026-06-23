@@ -96,26 +96,17 @@ function LeadershipPage() {
                   className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm"
                 >
                   <div className="flex aspect-square items-center justify-center bg-muted">
-                    {l.photoUrl ? (
-                      <img
-                        src={l.photoUrl}
-                        alt={l.name}
-                        className="h-full w-full object-cover"
-                        loading="lazy"
-                      />
-                    ) : (
-                      <User className="h-20 w-20 text-muted-foreground/40" aria-hidden />
-                    )}
+                    <img
+                      src={l.photoUrl}
+                      alt={l.name}
+                      className="h-full w-full object-cover"
+                      loading="lazy"
+                    />
                   </div>
                   <div className="p-6">
                     <h2 className="font-display text-xl font-semibold">{l.name}</h2>
                     <p className="mt-1 text-sm font-medium text-primary">{l.role}</p>
                     <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{l.bio}</p>
-                    {l.placeholder && (
-                      <p className="mt-3 text-xs italic text-muted-foreground/70">
-                        Bio coming soon
-                      </p>
-                    )}
                   </div>
                 </article>
               ))}
