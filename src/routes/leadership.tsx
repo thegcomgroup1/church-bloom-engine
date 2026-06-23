@@ -32,12 +32,6 @@ const leaders: Leader[] = [
     bio: "Alex Karnaushenko is One Hope's Pastor for Worship and Slavic Ministries. Alex came to the U.S. as a refugee from war and is known for his resilient leadership and multi-talented music abilities. He's married to Alla and has three daughters. Alex earned a Master's in Computer Science and also works in the Community Ministry field here in Tucson.",
     photoUrl: alexPhoto.url,
   },
-  {
-    name: "Team Member",
-    role: "Role coming soon",
-    bio: "We'll introduce more of the team here soon. Bios and photos are on the way.",
-    placeholder: true,
-  },
 ];
 
 export const Route = createFileRoute("/leadership")({
