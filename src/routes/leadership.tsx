@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { User } from "lucide-react";
 import { AnnouncementBar } from "@/components/sections/AnnouncementBar";
 import { StickyHeader } from "@/components/sections/StickyHeader";
 import { Footer } from "@/components/sections/Footer";
@@ -14,8 +13,7 @@ type Leader = {
   name: string;
   role: string;
   bio: string;
-  photoUrl?: string;
-  placeholder?: boolean;
+  photoUrl: string;
 };
 
 // Easy-to-edit roster. Replace placeholder cards as content becomes available.
@@ -31,12 +29,6 @@ const leaders: Leader[] = [
     role: "Pastor for Worship & Slavic Ministries",
     bio: "Alex Karnaushenko is One Hope's Pastor for Worship and Slavic Ministries. Alex came to the U.S. as a refugee from war and is known for his resilient leadership and multi-talented music abilities. He's married to Alla and has three daughters. Alex earned a Master's in Computer Science and also works in the Community Ministry field here in Tucson.",
     photoUrl: alexPhoto.url,
-  },
-  {
-    name: "Team Member",
-    role: "Role coming soon",
-    bio: "We'll introduce more of the team here soon. Bios and photos are on the way.",
-    placeholder: true,
   },
 ];
 
@@ -103,26 +95,17 @@ function LeadershipPage() {
                   className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm"
                 >
                   <div className="flex aspect-square items-center justify-center bg-muted">
-                    {l.photoUrl ? (
-                      <img
-                        src={l.photoUrl}
-                        alt={l.name}
-                        className="h-full w-full object-cover"
-                        loading="lazy"
-                      />
-                    ) : (
-                      <User className="h-20 w-20 text-muted-foreground/40" aria-hidden />
-                    )}
+                    <img
+                      src={l.photoUrl}
+                      alt={l.name}
+                      className="h-full w-full object-cover"
+                      loading="lazy"
+                    />
                   </div>
                   <div className="p-6">
                     <h2 className="font-display text-xl font-semibold">{l.name}</h2>
                     <p className="mt-1 text-sm font-medium text-primary">{l.role}</p>
                     <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{l.bio}</p>
-                    {l.placeholder && (
-                      <p className="mt-3 text-xs italic text-muted-foreground/70">
-                        Bio coming soon
-                      </p>
-                    )}
                   </div>
                 </article>
               ))}
