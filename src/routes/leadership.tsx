@@ -5,7 +5,8 @@ import { StickyHeader } from "@/components/sections/StickyHeader";
 import { Footer } from "@/components/sections/Footer";
 import { PlanYourVisitButton } from "@/components/PlanYourVisitButton";
 import { PageHero } from "@/components/sections/PageHero";
-import { siteConfig } from "@/config/site";
+import timothyPhoto from "@/assets/leadership/timothy-fowler.jpg.asset.json";
+import alexPhoto from "@/assets/leadership/alex-karnaushenko.jpg.asset.json";
 
 
 type Leader = {
@@ -20,20 +21,15 @@ type Leader = {
 const leaders: Leader[] = [
   {
     name: "Dr. Timothy Fowler",
-    role: "Lead Pastor",
-    bio: "Dr. Fowler leads One Hope with a steady commitment to teaching the Bible plainly and loving Tucson well. He preaches most Sundays and helps shape the heart of our church family.",
+    role: "Founding & Lead Pastor",
+    bio: "Dr. Timothy Fowler — \"Timbo\" to his friends — is One Hope's founding pastor, known for passionate leadership and a down-to-earth, humorous Bible teaching style. He's married to Robin, with four sons and six young grandchildren. He earned his Master of Divinity from Southern Seminary and Doctor of Ministry from Liberty University Divinity School, and also serves as Mission Strategist of the Catalina Baptist Association of churches in southern Arizona.",
+    photoUrl: timothyPhoto.url,
   },
   {
-    name: "Team Member",
-    role: "Role coming soon",
-    bio: "We'll introduce more of the team here soon. Bios and photos are on the way.",
-    placeholder: true,
-  },
-  {
-    name: "Team Member",
-    role: "Role coming soon",
-    bio: "We'll introduce more of the team here soon. Bios and photos are on the way.",
-    placeholder: true,
+    name: "Alex Karnaushenko",
+    role: "Pastor for Worship & Slavic Ministries",
+    bio: "Alex Karnaushenko is One Hope's Pastor for Worship and Slavic Ministries. Alex came to the U.S. as a refugee from war and is known for his resilient leadership and multi-talented music abilities. He's married to Alla and has three daughters. Alex earned a Master's in Computer Science and also works in the Community Ministry field here in Tucson.",
+    photoUrl: alexPhoto.url,
   },
   {
     name: "Team Member",
