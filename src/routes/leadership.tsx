@@ -8,7 +8,6 @@ import { PageHero } from "@/components/sections/PageHero";
 import { siteConfig } from "@/config/site";
 import timothyPhoto from "@/assets/leadership/timothy-fowler.jpg.asset.json";
 import alexPhoto from "@/assets/leadership/alex-karnaushenko.jpg.asset.json";
-import alexPhoto from "@/assets/leadership/alex-karnaushenko.jpg.asset.json";
 
 
 type Leader = {
