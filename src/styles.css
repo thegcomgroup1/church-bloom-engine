@@ -53,7 +53,7 @@
   /* ---- BRAND (swap per church) ---- */
   /* Primary: One Hope orange (#ff6d01). */
   --primary: oklch(0.68 0.19 45);
-  --primary-foreground: oklch(0.99 0 0);
+  --primary-foreground: oklch(0.22 0.02 250);
 
   /* Secondary: warm near-black for headings */
   --secondary: oklch(0.27 0.03 50);
