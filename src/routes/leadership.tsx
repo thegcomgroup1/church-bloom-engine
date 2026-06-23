@@ -13,8 +13,7 @@ type Leader = {
   name: string;
   role: string;
   bio: string;
-  photoUrl?: string;
-  placeholder?: boolean;
+  photoUrl: string;
 };
 
 // Easy-to-edit roster. Replace placeholder cards as content becomes available.
