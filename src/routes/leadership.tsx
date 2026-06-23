@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { User } from "lucide-react";
 import { AnnouncementBar } from "@/components/sections/AnnouncementBar";
 import { StickyHeader } from "@/components/sections/StickyHeader";
 import { Footer } from "@/components/sections/Footer";
